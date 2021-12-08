@@ -1,6 +1,6 @@
 name: subscribed_stream
 description: A utiliy class for easy stream subscription handling.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/HeroPhil/subscribed_stream
 
 environment:
