@@ -27,7 +27,8 @@ A utiliy class for easy stream subscription handling
 
 ```dart
 final stream = getRealTimeDataFromDatabase();
-final _subscribedStream = SubscribedStream<String>(
+
+final subscribedStream = SubscribedStream<String>(
       stream: stream,
       onStreamEvent: (data, previousData, subscribedStream) {
           if (data != previousData) {
@@ -36,6 +37,9 @@ final _subscribedStream = SubscribedStream<String>(
         return data;
       },
     );
+
+// from UI
+final latestValue = subscribedStream.latestValue;
 ```
 
 ## Additional information
