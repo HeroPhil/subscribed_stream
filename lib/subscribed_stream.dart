@@ -18,7 +18,7 @@ typedef T StreamSubscriptionCallback<T>(
 /// The [stream] is a [Stream] that emits [T] values.
 /// The [onStreamEvent] callback is called whenever a new value is emitted.
 class SubscribedStream<T> {
-  /// The stream which is being subscribed to
+  /// [stream] The stream which is being subscribed to.
   Stream<T> stream;
 
   /// A list of subscriptions to the stream
@@ -30,18 +30,16 @@ class SubscribedStream<T> {
   /// Callback to be called when a new value is emitted by the stream
   StreamSubscriptionCallback<T> onStreamEvent;
 
-  /// Constructor
+  /// Default Constructor
+  ///
+  /// [stream] The stream which is being subscribed to.
+  /// [onStreamEvent] The callback to be called when a new value is emitted by the stream. Should return the value to be stored as latest Value.
+  /// [latestValue] (Optional) The initial value to be used as latestValue. Default to null.
+  /// [initiallySubscribed] (Optional, default = true) Whether to automatically subscribe to the stream.s
   SubscribedStream({
-    /// The stream to subscribe to
     required this.stream,
-
-    /// The callback to be called when a new value is emitted by the stream
     required this.onStreamEvent,
-
-    /// The initial value to be used as latestValue. Default to null.
     this.latestValue,
-
-    /// Whether to automatically subscribe to the stream. Default to true.
     bool initiallySubscribed = true,
   }) {
     if (initiallySubscribed) {
